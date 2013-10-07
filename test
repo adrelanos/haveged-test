@@ -27,3 +27,5 @@ service haveged status || true
 /etc/init.d/haveged start || true
 
 /etc/init.d/haveged status || true
+
+timeout --kill-after=60 60 haveged -F --verbose=-1
