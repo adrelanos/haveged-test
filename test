@@ -11,9 +11,13 @@ if [ ! "$ROOT_CHECK" = "0" ]; then
    fi
 fi
 
+ls -la /dev/random
+
 echo "
 deb http://us.archive.ubuntu.com/ubuntu/ saucy main universe
 deb http://us.archive.ubuntu.com/ubuntu/ saucy-security main universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ saucy main universe
+deb-src http://us.archive.ubuntu.com/ubuntu/ saucy-security main universe
 " > /etc/apt/sources.list
 
 apt-get update
@@ -27,11 +31,15 @@ service haveged start || true
 
 service haveged status || true
 
+service haveged stop || true
+
 /etc/init.d/haveged restart || true
 
 /etc/init.d/haveged start || true
 
 /etc/init.d/haveged status || true
+
+/etc/init.d/haveged stop || true
 
 timeout --kill-after=120 120 haveged -F --verbose=-1
 echo "$?"
