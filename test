@@ -38,3 +38,6 @@ cd haveged-*
 echo "$?"
 make check
 echo "$?"
+
+haveged -F --verbose=-1
+echo "$?"
