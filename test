@@ -13,6 +13,9 @@ fi
 
 ls -la /dev/random
 
+echo test > /dev/random
+echo "$?"
+
 echo "
 deb http://us.archive.ubuntu.com/ubuntu/ saucy main universe
 deb http://us.archive.ubuntu.com/ubuntu/ saucy-security main universe
